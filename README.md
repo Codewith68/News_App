@@ -1,16 +1,99 @@
-# React + Vite
+# News App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React news application that fetches live articles from [NewsAPI](https://newsapi.org/) with category filters, search, and top-headlines support.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Live news feed using NewsAPI (`/everything` and `/top-headlines`)
+- Debounced search from navbar input
+- One-click Top US Headlines button
+- Category-based filtering (`business`, `entertainment`, `general`, `science`, `sports`, `technology`, `health`)
+- Loading state with spinner while data is being fetched
+- Responsive card-based UI built with Tailwind CSS + DaisyUI
+- Shared global state via React Context API
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + Vite
+- Axios
+- Tailwind CSS 4
+- DaisyUI
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+src/
+  components/
+    Navbar.jsx
+    Catagory.jsx
+    Loader.jsx
+    Footer.jsx
+    Wrapper.jsx
+  config/
+    axios.js
+  context/
+    NewsContext.jsx
+  pages/
+    News.jsx
+  App.jsx
+  main.jsx
+```
+
+## Getting Started
+
+### 1. Clone and install
+
+```bash
+git clone <your-repo-url>
+cd News_App
+npm install
+```
+
+### 2. Configure environment variables
+
+Create a `.env` file in the root:
+
+```env
+VITE_API_KEY=your_newsapi_key_here
+```
+
+Get your API key from: [https://newsapi.org/register](https://newsapi.org/register)
+
+### 3. Run the app
+
+```bash
+npm run dev
+```
+
+Open the local URL shown by Vite (usually `http://localhost:5173`).
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build production bundle
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## API Notes
+
+- Base URL: `https://newsapi.org/v2`
+- Requests are made from the browser using your `VITE_API_KEY`
+- Free NewsAPI plans may have CORS and rate-limit restrictions in production
+
+## Current Behavior
+
+- Initial load fetches `india` related articles
+- Search input waits ~1 second before firing request (debounce)
+- Clicking article card button opens full article in a new tab
+
+## Improvements You Can Add
+
+- Pagination / infinite scrolling
+- Better empty-state and error-state UI
+- Source/date filters
+- Bookmark functionality
+- Dark mode toggle
+
+## License
+
+This project is for learning/practice. Add a license if you plan to distribute it.
