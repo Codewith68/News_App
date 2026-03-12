@@ -1,6 +1,6 @@
 # News App
 
-A responsive React news application that fetches live articles from [NewsAPI](https://newsapi.org/) with category filters, search, and top-headlines support.
+A responsive React news application that fetches live articles from [NewsAPI](https://newsapi.org/) with category filters, search, and top-headlines support...
 
 ## Features
 
