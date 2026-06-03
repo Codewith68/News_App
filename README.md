@@ -18,7 +18,6 @@ A responsive React news application that fetches live articles from [NewsAPI](ht
 - Axios
 - Tailwind CSS 4
 - DaisyUI
-
 ## Project Structure
 
 ```text
